@@ -1,0 +1,15 @@
+# 服务端口号
+server:
+  port: 8082
+
+# 服务名
+spring:
+  application:
+    name: auth
+
+# actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

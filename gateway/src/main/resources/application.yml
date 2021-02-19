@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+## gateway
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true               # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+      routes:
+        - id: api
+          # uri: lb://api        # 动态路由方式需要配合eureka、nacos注册中心使用
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+        - id: auth
+          # uri: lb://auth       # 动态路由方式需要配合eureka、nacos注册中心使用
+          uri: http://localhost:8082
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1

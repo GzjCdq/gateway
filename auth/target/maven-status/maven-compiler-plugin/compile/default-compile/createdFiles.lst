@@ -1,0 +1,3 @@
+cn/templation/config/WebSecurityConfig.class
+cn/templation/config/AuthorizationServerConfig.class
+cn/templation/AuthBootstrap.class
